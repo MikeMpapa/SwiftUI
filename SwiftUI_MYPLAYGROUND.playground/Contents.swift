@@ -177,3 +177,120 @@ let planetValue4 = Planet3(rawValue: "Gandy")
  
  */
 
+// Mathematical Operators
+
+let x = 3
+let y = 12
+var z = x+y
+z = x-y
+z = x*y
+z = y/x
+z = x/y
+z = y%x // reamining
+let k = 5
+z = y%k
+
+let dogname = "Mats"
+let doglastname = "Kasasioris"
+let dogfamilyname = dogname+doglastname
+
+let names = ["Mikes","Tsilets"]
+let lastnames = ["Papakositasa","Kapatsorilets"]
+let familynames = names+lastnames
+
+z = 5
+z += 1 //in place value assignment
+z -= 1
+z *= 2
+z /= 2
+
+
+var stringVar = "I am "
+stringVar += "pretty"
+
+
+// Comparison Operators
+x > y
+x <= y
+x == 3
+x != y
+"A">"B"
+"A"<"B"
+"Mike" < "Papa" // Ordering the two words alphabetically - the one that comes later is considered "bigger"
+
+
+//Conditions
+let card1 = 12
+let card2 = 10
+
+if card1+card2==21{
+    print("Blackjack!")
+}
+else if card1+card2 <= 21{
+    print("Keep trying!")
+}
+else{
+    print("Sorry you lost!!")
+}
+
+
+// Logical Operators
+let age1 = 17
+let age2 = 21
+
+if age1 > 18 && age2 > 18 {
+    print("Both are over 18")
+}
+
+if age1 > 18 || age2 > 18 {
+    print("At least one is over 18")
+}
+
+//Ternary operator - Combining two conditions in one phrase
+let areEqual = ( card1==card2 ? "Yes! :)" : "No! :(")
+print(areEqual)
+
+
+// Switch-Case conditioning
+
+let color = "blue"
+
+switch color {
+case "blue":
+    print("DabudiDabudai")
+    fallthrough// executes the code in the casae right bellow as well
+case "red":
+    print("It wasn't red")
+default:
+    print("Invalid color!")
+}
+
+// Range operators
+// x..<y "Up to not including y"
+// x...y "Up to including y"
+
+let range = 0...10
+range.lowerBound
+
+let score2 = 50
+
+switch score2 {
+case 0...50:
+    print("kakos")
+case 51 ..< 100 :
+    print("kalos")
+default:
+    print("teleios")
+}
+
+//same using if and compaarison operators
+if score2 <= 50 {
+    print("Kakos")
+}
+else if score2 < 100{
+    print("Kalos")
+}
+else{
+    print("Teleios")
+}
+
