@@ -402,3 +402,130 @@ while true {
     }
     count2+=1
 }
+
+
+
+// Functions
+
+func myPrint(){
+    let message = """
+It's my Life!
+And it's now or never!
+"""
+    print(message)
+}
+myPrint()
+
+// Arguments (Arguments are constant!!)
+func Square(number: Int){
+    print(number*number)
+}
+
+Square(number: 8)
+print("In func print")
+
+// Rerurn value
+func NewSquare(number: Int) -> Int{
+    let result = number*number
+    return result
+}
+
+let squareResult = NewSquare(number: 8)
+print(squareResult)
+print("Out func print")
+
+
+//Return multiple values
+func NewSquare2(number: Int) -> (String,Int){
+    let result = number*number
+    let text = "Returned multiple values"
+    return (text,result)
+}
+let squareResult2 = NewSquare2(number: 8)
+print(squareResult2.0,squareResult2.1)
+
+// Parameter Labels
+func SayHello(to name: String){
+    print("Hello \(name)!")
+}
+SayHello(to: "Michalis")
+
+
+// Ommiting Parameter Labels
+func SayHello2(_ name:String){
+    print("Hello \(name)!")
+}
+
+SayHello2("Michalis")
+
+
+//Default Values
+
+func Greet(to name: String,greet: Bool=true){
+    if greet {
+        print("\(name)??? NOOOOOO")
+    }
+    else{
+        print("\(name)???YESSSSSS")
+    }
+}
+
+Greet(to: "Michalis")
+Greet(to: "Tsilets", greet: false)
+
+
+// Size indipendent attribute
+
+func NewSquare3 (numbers: Int ...){
+    for i in numbers{
+        print(i,"Squared:",i*i)
+    }
+}
+
+NewSquare3(numbers: 1,2,3,4)
+
+
+// Throwing Error Funtions - Try/Catch
+
+enum ErrorMessage: Error{
+    case obvious_password
+}
+
+func Password(code: String) throws -> String{
+    guard code != "123" && code != "password" else{
+        throw ErrorMessage.obvious_password
+    }
+    return "Password Saved"
+}
+
+
+do{
+    let password_feedback = try Password(code: "APOXEREDHS")
+    print(password_feedback)
+}
+catch{
+    print("Password too obvious. Try another one.")
+}
+//----------
+do{
+    let password_feedback = try Password(code: "123")
+    print(password_feedback)
+}
+catch{
+    print("Password too obvious. Try another one.")
+}
+
+// InOut Parameters
+
+
+func DoubleValue(number: inout Int){
+    number*=2
+}
+
+
+var num = 10
+print(num)
+DoubleValue(number: &num)
+print(num)
+
+
