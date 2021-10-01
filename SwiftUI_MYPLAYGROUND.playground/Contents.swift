@@ -294,3 +294,111 @@ else{
     print("Teleios")
 }
 
+//FOR Lopps
+
+let count1 = 0...10
+
+for i in count1{
+    print("The number is: \(i)")
+}
+
+
+let values = ["1","Argyro","Papatrexas"]
+
+for s in values{
+    print("The string is: \(s)")
+}
+
+for _ in 1...5{
+    print("Eisai oraio mwro")
+}
+
+// WHILE Loops
+var count2 = 0
+while count2<10{
+    count2+=1
+    print(count2)
+}
+print("Finished!")
+
+
+// REPEAT Loop
+
+count2=0
+repeat{
+    count2+=1
+    print(count2)
+}while count2 != 10
+print("Finished AAagain!")
+
+
+//Exiting loops
+
+for i in count1{
+  print(i)
+  if i == 5{
+      print("Out!")
+      break
+  }
+}
+
+
+//Exiting multiple loops using LOOP-LAABELING
+
+outerLoop: for i in 3...5{
+    for j in 0...2{
+        print("Max")
+        
+        if j == 1{
+            break outerLoop
+        }
+    }
+    print("\n\(i)")
+}
+print("\nDouble Break ")
+
+outerouterLoop: for k in ["Stavros","Kosma","Petris"]{
+    outerLoop: for i in 3...5{
+        for j in 0...2{
+            print("Max")
+            if j == 1{
+                break outerLoop
+            }
+        }
+        print("\n\(i)")
+    }
+    print(k)
+}
+
+print("\nSecond Double Break")
+
+outerouterLoop: for k in ["Stavros","Kosma","Petris"]{
+    outerLoop: for i in 3...5{
+        for j in 0...2{
+            print("Max")
+            if j == 1{
+                break outerouterLoop
+            }
+        }
+        print("\n\(i)")
+    }
+    print(k)
+}
+
+
+//Skipping Loops
+for c in 1...10{
+    if c%2 == 1 {continue}
+    else{print(c)}
+}
+
+//Infinite Loops - Common in mobile apps
+
+count2=0
+while true {
+    print("waiting")
+    if count2 == 4{
+        break
+    }
+    count2+=1
+}
