@@ -529,3 +529,55 @@ DoubleValue(number: &num)
 print(num)
 
 
+// Closures - Functions as variables
+
+let activity = {
+    print("Driving!!!")
+}
+
+activity()
+print("---------")
+// Closures with Arguments - you don’t use parameter labels when running closures
+let activity2 = { (vehicle: String) in
+    print("I am driving my \(vehicle)!!!")
+}
+
+activity2("motorcycle")
+print("---------")
+// Closures with Return
+let activity3 = { (vehicle: String) -> String in
+    let the_activity = ("I am driving my \(vehicle)!!!")
+    return the_activity
+}
+
+let returnedActivity = activity3("truck")
+print(returnedActivity)
+
+print("---------")
+//Closures as paarameters
+
+func traveling(action: () -> Void){
+    print("Getting Reaady")
+    action()
+    print("Arrived")
+}
+
+traveling(action: activity)
+
+//Trailing closure syntax - Use a closure as the last parameter of a function
+print("---------")
+traveling {
+    activity2("elephant")
+}
+
+func goCamping(then action: () -> Void) {
+    print("We're going camping!")
+    action()
+}
+goCamping {
+    print("Sing songs")
+    print("Put up tent")
+    print("Attempt to sleep")
+    activity2("elephant")
+
+}
