@@ -569,6 +569,7 @@ print("---------")
 traveling {
     activity2("elephant")
 }
+print("---------")
 
 func goCamping(then action: () -> Void) {
     print("We're going camping!")
@@ -579,5 +580,148 @@ goCamping {
     print("Put up tent")
     print("Attempt to sleep")
     activity2("elephant")
+}
+print("---------")
+
+// Closures as function arguments that accept parameters
+
+func traveling2(action: (String) -> Void) {
+    print("I'm getting ready to go.")
+    action("London")
+    print("I arrived!")
+}
+traveling2 { (place: String) in
+    print("I'm going to \(place) in my car")
+}
+
+print("---------")
+// Closures as function arguments that accept parameters and return values
+
+let cooking_food = { (ingredient: String)->String in
+    let str = ("Today we use \(ingredient)")
+    return str
+}
+
+func cook(food:(String)->String){
+    print("I prepare food")
+    let steps = food("cucamber")
+    print(steps)
+    print("Food is redy!!!")
+}
+
+
+cook{ (veggie: String) -> String in
+    cooking_food("\(veggie) and we cook in the oven")
+}
+
+print("---------")
+// Aadvanced naming of the above
+cook{
+    cooking_food("\($0) and we cook in the oven")
+}
+print("---------")
+
+
+func getDirections(to destination: String, then travel: ([String]) -> Void) {
+    let directions = [
+        "Go straight ahead",
+        "Turn left onto Station Road",
+        "Turn right onto High Street",
+        "You have arrived at \(destination)"
+    ]
+    travel(directions)
+}
+getDirections(to: "London") { (directions: [String]) in
+    print("I'm getting my car.")
+    for direction in directions {
+        print(direction)
+    }
+}
+print("---------")
+
+
+func manipulate(numbers: [Int], using algorithm: (Int) -> Int) {
+    for number in numbers {
+        let result = algorithm(number)
+        print("Manipulating \(number) produced \(result)")
+    }
+}
+manipulate(numbers: [1, 2, 3]) { number in
+    return number * number
+}
+
+print("---------")
+
+
+func encrypt(password: String, using algorithm: (String) -> String) {
+    print("Encrypting password...")
+    let result = algorithm(password)
+    print("The result is \(result)")
+}
+encrypt(password: "t4ylor") { (password: String) in
+    print("Using top secret encryption!")
+    return "SECRET" + password + "SECRET"
+}
+
+print("---------")
+
+func scoreToGrade(score: Int, gradeMapping: (Int) -> String) {
+    print("Your score was \(score)%.")
+    let result = gradeMapping(score)
+    print("That's a \(result).")
 
 }
+scoreToGrade(score: 88) { (grade: Int) in
+    if grade < 85 {
+        return "Fail"
+    }
+    return "Pass"
+
+}
+
+// Closures with multiple parameters
+print("---------")
+
+func traveling3(action:(String,Int)->String){
+    print("i am leving")
+    let returned = action("spaceship",80)
+    print(returned)
+    print("arrived")
+}
+
+
+traveling3 { (vehicle: String, speed: Int) in
+    return ("I am moving in a \(vehicle) at \(speed) km/h")
+}
+
+// Function that returns a closure
+print("---------")
+func traveling4()->(String)->String{
+    return{(vehicle: String) in
+        let travel_sentence = "I am a \(vehicle)"
+        return travel_sentence
+    }
+}
+
+let closureResults = traveling4()
+print(closureResults("car"))
+print(closureResults("bus"))
+
+// Closure Capturing
+print("---------")
+func traveling5()->(String)->String{
+    var counter = 0
+    return{(vehicle: String) in
+        let travel_sentence = " \(counter) I am a \(vehicle)"
+        counter+=1
+        return travel_sentence
+    }
+}
+
+let closureResults2 = traveling5()
+print(closureResults2("car"))
+print(closureResults2("bus"))
+print(closureResults2("bicycle"))
+
+let closureResults3 = traveling5()
+print(closureResults3("bicycle"))
