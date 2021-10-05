@@ -725,3 +725,114 @@ print(closureResults2("bicycle"))
 
 let closureResults3 = traveling5()
 print(closureResults3("bicycle"))
+
+
+
+// Structs
+print("---------")
+
+struct Sport{
+    var name:String = "Tipota" //default value == tipotaa
+}
+
+var tennis = Sport()
+print(tennis.name)
+tennis = Sport(name: "Tennis")
+print(tennis.name)
+tennis.name = "Tennis Sport"
+print(tennis.name)
+
+
+// Structs with computed properties
+print("---------")
+struct Sport2{
+    var name:String
+    var isOlympic:Bool
+    var winsMedal: String{
+        if isOlympic{
+            return "You can win a medal"
+        }
+        else{
+            return "No medal for you"
+        }
+    }
+}
+
+var hockey = Sport2(name: "Hockey",isOlympic: false)
+print(hockey.winsMedal)
+
+var soccer = Sport2(name: "Soccer",isOlympic: true)
+print(soccer.winsMedal)
+
+// Structs with property observers
+print("---------")
+
+struct Progress{
+    var task: String
+    var amount: Int{
+        didSet{
+            print("\(task) is now \(amount)% completed")
+        }
+    }
+}
+
+var progressBar = Progress(task: "Instalation", amount: 0)
+progressBar.amount=30
+progressBar.amount=60
+progressBar.amount=100
+
+print("---------")
+// Struct methods
+struct City {
+    var population: Int
+
+    func collectTaxes() -> Int {
+        return population * 1000
+    }
+}
+
+let london = City(population: 10)
+print("Taxes for \(london.population) people are \(london.collectTaxes())")
+
+print("---------")
+//Mutating methods --> Methods that specificaally defined to change the value of a struct-property
+struct Person{
+    var name: String
+    
+    mutating func makeanonymous(){
+        name = "Anonymous"
+    }
+}
+
+var user = Person(name: "alex")
+print(user.name)
+user.makeanonymous()
+print(user.name)
+
+
+print("---------")
+// The 'String' struct
+let string = "Do or do not, there is no try."
+print(string.count)
+print(string.hasPrefix("Do"))
+print(string.uppercased())
+print(string.sorted())
+print(string.lowercased())
+
+print("---------")
+// The 'String' struct
+var array = ["John","Bon"]
+print(array.count)
+print(array.sorted())
+array.append("Jovi")
+print(array)
+array.shuffle()
+print(array)
+array.remove(at: 0)
+print(array)
+print(array.contains("Jovi"))
+print(array.min())
+print(array.max())
+print(array.firstIndex(of: "John"))
+print(array.firstIndex(of: "Jovi"))
+
