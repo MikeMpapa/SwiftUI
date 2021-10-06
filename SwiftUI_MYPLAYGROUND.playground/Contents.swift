@@ -1,5 +1,8 @@
 import UIKit
 
+
+print("\n----VARIABLES-----")
+
 var greeting = "Hello, playground"
 greeting = "Byeeeeee"
 var age = 38
@@ -21,19 +24,19 @@ var multilinestrCor = """
 var pi = 3.14 //double vaar
 var isBoolean = true // boolean var
 
-
+print("\n----COMPLEX STRINGS-----")
 // Complex Strings
 var score = 85
 var complexStr = "Your score is \(score)" //string interpolations
 var moreComplexStr = "You are baad because: \(complexStr)"
 
 
-//Constants
+print("\n----COMPLEX STRINGS-----")
 let taylor = "swift"
 //taylor = "john" //invalid operation
 
 
-
+print("\n----TYPE ANNOTTIONS-----")
 //Type Annotations
 let str = "Automaticly recognized aas string"
 let year: Int = 1989 //specify as int
@@ -41,7 +44,7 @@ let yearst: String = "1989" //specify as string
 let height: Double = 1.78 //specify as double
 let taylorRocks: Bool = true //specify as boolean
 
-
+print("\n----ARRAYS-----")
 //Arrays
 let couple1 = "Michalis Papakostas"
 let couple2 = "Christiana Kapatsori"
@@ -55,11 +58,12 @@ let arithmos = 100
 // let spitiko = [couple1,couple2,pet1,pet2,pet3,arithmos] --> error
 let spitiko2: [String] = [couple1,couple2,pet1,pet2,pet3] // Array with value declaration
 
+print("\n----SETS-----")
 //Sets --> no ordeer and only unique appearances
 let set_spitiko = Set(spitiko)
 let random_set = Set([1,2,1,3,2])
 
-
+print("\n----TUPLES-----")
 //Tuples --> Fixed in size
 var tuple_example = (pet:"Max",lastname:"Kasasioris")
 tuple_example.0
@@ -67,6 +71,7 @@ tuple_example.pet
 tuple_example.lastname = "Korkotzelos"
 // tuple_example.lastname = 5 --> error - must be string
 
+print("\n----COMPARISON: Arrays VS Sets VS Tuples-----")
 //COMPARISON: Arrays VS Sets VS Tuples
 //If you need a specific, fixed collection of related values where each item has a precise position or name, you should use a tuple:
 
@@ -80,6 +85,8 @@ var pythons = ["Eric", "Graham", "John", "Michael", "Terry", "Terry"]
 //Arrays are by far the most common of the three types.
 pythons.append("Russel")
 
+
+print("\n----DICTIONARIES-----")
 
 //Dictionaries
 let heights = [
@@ -100,6 +107,8 @@ ice_cream_price["Mango",default:-1]
 // ice_cream_price["Mango",default:"Flavor not available"] --> error - value has to be Double here
 
 
+print("\n----CREATING EMPTY DATA STRUCTURES-----")
+
 // Creating an empty collection
 
 // Empty Dictionary
@@ -117,8 +126,8 @@ var numbers = Set<Int>()
 var scores = Dictionary<String, Int>()
 var results2 = Array<Int>()
 
-
-// Enumeraations --> Define a set of standard vaalues and we can assign them insted of strings
+print("\n----ENUMERATIONS-----")
+// Enumerations --> Define a set of standard values and we can assign them insted of strings
 let result = "failure"
 let result2 = "failed"
 let result3 = "fail"
@@ -177,6 +186,8 @@ let planetValue4 = Planet3(rawValue: "Gandy")
  
  */
 
+print("\n----MATHEMATICAL OPERTIONS-----")
+
 // Mathematical Operators
 
 let x = 3
@@ -208,6 +219,7 @@ z /= 2
 var stringVar = "I am "
 stringVar += "pretty"
 
+print("\n----COMPARISON OPERATORS-----")
 
 // Comparison Operators
 x > y
@@ -219,6 +231,7 @@ x != y
 "Mike" < "Papa" // Ordering the two words alphabetically - the one that comes later is considered "bigger"
 
 
+print("\n----IF CONDITIONING-----")
 //Conditions
 let card1 = 12
 let card2 = 10
@@ -233,7 +246,7 @@ else{
     print("Sorry you lost!!")
 }
 
-
+print("\n----LOGICAL OPERATORS-----")
 // Logical Operators
 let age1 = 17
 let age2 = 21
@@ -246,11 +259,13 @@ if age1 > 18 || age2 > 18 {
     print("At least one is over 18")
 }
 
+print("\n----TERNARY OPERATOR-----")
+
 //Ternary operator - Combining two conditions in one phrase
 let areEqual = ( card1==card2 ? "Yes! :)" : "No! :(")
 print(areEqual)
 
-
+print("\n----SWITCH-CASE CONDITIONING-----")
 // Switch-Case conditioning
 
 let color = "blue"
@@ -264,6 +279,8 @@ case "red":
 default:
     print("Invalid color!")
 }
+
+print("\n----RANGE OPERATORS-----")
 
 // Range operators
 // x..<y "Up to not including y"
@@ -294,7 +311,9 @@ else{
     print("Teleios")
 }
 
-//FOR Lopps
+
+print("\n----FOR LOOPS-----")
+//FOR LoOps
 
 let count1 = 0...10
 
@@ -313,6 +332,7 @@ for _ in 1...5{
     print("Eisai oraio mwro")
 }
 
+print("\n----WHILE LOOPS-----")
 // WHILE Loops
 var count2 = 0
 while count2<10{
@@ -322,8 +342,8 @@ while count2<10{
 print("Finished!")
 
 
+print("\n----REPEAT LOOPS-----")
 // REPEAT Loop
-
 count2=0
 repeat{
     count2+=1
@@ -332,8 +352,8 @@ repeat{
 print("Finished AAagain!")
 
 
+print("\n----EXITING LOOPS-----")
 //Exiting loops
-
 for i in count1{
   print(i)
   if i == 5{
@@ -342,7 +362,7 @@ for i in count1{
   }
 }
 
-
+print("\n----EXITING MULTIPLE LOOPS-----")
 //Exiting multiple loops using LOOP-LAABELING
 
 outerLoop: for i in 3...5{
@@ -385,13 +405,14 @@ outerouterLoop: for k in ["Stavros","Kosma","Petris"]{
     print(k)
 }
 
-
+print("\n----SKIPPING LOOPS-----")
 //Skipping Loops
 for c in 1...10{
     if c%2 == 1 {continue}
     else{print(c)}
 }
 
+print("\n----INFINITE LOOPS-----")
 //Infinite Loops - Common in mobile apps
 
 count2=0
@@ -404,6 +425,7 @@ while true {
 }
 
 
+print("\n----FUNCTIONS-----")
 
 // Functions
 
@@ -416,6 +438,7 @@ And it's now or never!
 }
 myPrint()
 
+print("\n----FUNCTIONS WITH ARGUMENTS-----")
 // Arguments (Arguments are constant!!)
 func Square(number: Int){
     print(number*number)
@@ -424,6 +447,7 @@ func Square(number: Int){
 Square(number: 8)
 print("In func print")
 
+print("\n----FUNCTIONS THAT RETURN VALUE-----")
 // Rerurn value
 func NewSquare(number: Int) -> Int{
     let result = number*number
@@ -434,7 +458,7 @@ let squareResult = NewSquare(number: 8)
 print(squareResult)
 print("Out func print")
 
-
+print("\n----FUNCTIONS THAT RETURN MULTPLE VALUES-----")
 //Return multiple values
 func NewSquare2(number: Int) -> (String,Int){
     let result = number*number
@@ -444,13 +468,14 @@ func NewSquare2(number: Int) -> (String,Int){
 let squareResult2 = NewSquare2(number: 8)
 print(squareResult2.0,squareResult2.1)
 
+print("\n----FUNCTIONS & PARAMETER LABELS-----")
 // Parameter Labels
 func SayHello(to name: String){
     print("Hello \(name)!")
 }
 SayHello(to: "Michalis")
 
-
+print("\n----FUNCTIONS & OMITTING PARAMETER LABELS-----")
 // Ommiting Parameter Labels
 func SayHello2(_ name:String){
     print("Hello \(name)!")
@@ -458,9 +483,8 @@ func SayHello2(_ name:String){
 
 SayHello2("Michalis")
 
-
+print("\n----FUNCTIONS & DEFAULT PARAMETER VALUES-----")
 //Default Values
-
 func Greet(to name: String,greet: Bool=true){
     if greet {
         print("\(name)??? NOOOOOO")
@@ -474,8 +498,8 @@ Greet(to: "Michalis")
 Greet(to: "Tsilets", greet: false)
 
 
+print("\n----FUNCTIONS & SIZE INDEPENDENT ATTRIBUTES-----")
 // Size indipendent attribute
-
 func NewSquare3 (numbers: Int ...){
     for i in numbers{
         print(i,"Squared:",i*i)
@@ -485,8 +509,8 @@ func NewSquare3 (numbers: Int ...){
 NewSquare3(numbers: 1,2,3,4)
 
 
+print("\n----FUNCTIONS THAT THROW ERRORS (TRY/CATCH)-----")
 // Throwing Error Funtions - Try/Catch
-
 enum ErrorMessage: Error{
     case obvious_password
 }
@@ -515,8 +539,7 @@ catch{
     print("Password too obvious. Try another one.")
 }
 
-// InOut Parameters
-
+print("\n----FUNCTIONS & inout PARAMETERS-----")
 
 func DoubleValue(number: inout Int){
     number*=2
@@ -528,7 +551,7 @@ print(num)
 DoubleValue(number: &num)
 print(num)
 
-
+print("\n----CLOSURES-----")
 // Closures - Functions as variables
 
 let activity = {
@@ -536,14 +559,16 @@ let activity = {
 }
 
 activity()
-print("---------")
+
+print("\n----CLOSURES WITH ARGUMENTS-----")
 // Closures with Arguments - you don’t use parameter labels when running closures
 let activity2 = { (vehicle: String) in
     print("I am driving my \(vehicle)!!!")
 }
 
 activity2("motorcycle")
-print("---------")
+
+print("\n----CLOSURES THAT RETURN VALUES-----")
 // Closures with Return
 let activity3 = { (vehicle: String) -> String in
     let the_activity = ("I am driving my \(vehicle)!!!")
@@ -553,7 +578,8 @@ let activity3 = { (vehicle: String) -> String in
 let returnedActivity = activity3("truck")
 print(returnedActivity)
 
-print("---------")
+
+print("\n----CLOSURES AS FUNCTION PRAMETERS-----")
 //Closures as paarameters
 
 func traveling(action: () -> Void){
@@ -564,8 +590,8 @@ func traveling(action: () -> Void){
 
 traveling(action: activity)
 
+print("\n----TRAILING CLOSURE SYNTAX-----")
 //Trailing closure syntax - Use a closure as the last parameter of a function
-print("---------")
 traveling {
     activity2("elephant")
 }
@@ -581,8 +607,8 @@ goCamping {
     print("Attempt to sleep")
     activity2("elephant")
 }
-print("---------")
 
+print("\n----CLOSURES WITH PARAMETERS AS FUNCTION PRAMETERS-----")
 // Closures as function arguments that accept parameters
 
 func traveling2(action: (String) -> Void) {
@@ -594,7 +620,7 @@ traveling2 { (place: String) in
     print("I'm going to \(place) in my car")
 }
 
-print("---------")
+print("\n----CLOSURES WITH PARAMETERS AND RETURN VALUES AS FUNCTION PRAMETERS-----")
 // Closures as function arguments that accept parameters and return values
 
 let cooking_food = { (ingredient: String)->String in
@@ -614,8 +640,8 @@ cook{ (veggie: String) -> String in
     cooking_food("\(veggie) and we cook in the oven")
 }
 
-print("---------")
-// Aadvanced naming of the above
+print("\n----CLOSURES WITH PARAMETERS AS FUNCTION PRAMETERS - ADVANCED CLOSURE SYNTAX & PARAMETER NAMING-----")
+
 cook{
     cooking_food("\($0) and we cook in the oven")
 }
@@ -679,6 +705,7 @@ scoreToGrade(score: 88) { (grade: Int) in
 
 }
 
+print("\n----CLOSURES WITH MULTIPLE PARAMETERS AS FUNCTION PRAMETERS-----")
 // Closures with multiple parameters
 print("---------")
 
@@ -694,8 +721,8 @@ traveling3 { (vehicle: String, speed: Int) in
     return ("I am moving in a \(vehicle) at \(speed) km/h")
 }
 
+print("\n----FUNCTION THAT RETURNS A CLOSURE-----")
 // Function that returns a closure
-print("---------")
 func traveling4()->(String)->String{
     return{(vehicle: String) in
         let travel_sentence = "I am a \(vehicle)"
@@ -707,6 +734,7 @@ let closureResults = traveling4()
 print(closureResults("car"))
 print(closureResults("bus"))
 
+print("\n----CLOSURE CAPTURING: CARIABLES THAT MAINTAIN THEIR VALUE WITHIN A CLOSURE-----")
 // Closure Capturing
 print("---------")
 func traveling5()->(String)->String{
@@ -727,9 +755,8 @@ let closureResults3 = traveling5()
 print(closureResults3("bicycle"))
 
 
-
+print("\n----STRUCTS-----")
 // Structs
-print("---------")
 
 struct Sport{
     var name:String = "Tipota" //default value == tipotaa
@@ -742,7 +769,7 @@ print(tennis.name)
 tennis.name = "Tennis Sport"
 print(tennis.name)
 
-
+print("\n----STRUCTS WITH COMPUTED PROPERTIES-----")
 // Structs with computed properties
 print("---------")
 struct Sport2{
@@ -764,8 +791,9 @@ print(hockey.winsMedal)
 var soccer = Sport2(name: "Soccer",isOlympic: true)
 print(soccer.winsMedal)
 
+
+print("\n----STRUCTS WITH PROPERTY OBSERVERS-----")
 // Structs with property observers
-print("---------")
 
 struct Progress{
     var task: String
@@ -781,7 +809,7 @@ progressBar.amount=30
 progressBar.amount=60
 progressBar.amount=100
 
-print("---------")
+print("\n----STRUCT METHODS-----")
 // Struct methods
 struct City {
     var population: Int
@@ -794,7 +822,7 @@ struct City {
 let london = City(population: 10)
 print("Taxes for \(london.population) people are \(london.collectTaxes())")
 
-print("---------")
+print("\n----MUTATING METHODS IN STRUCTS-----")
 //Mutating methods --> Methods that specificaally defined to change the value of a struct-property
 struct Person{
     var name: String
@@ -810,7 +838,7 @@ user.makeanonymous()
 print(user.name)
 
 
-print("---------")
+print("\n----THE STRING STRUCT-----")
 // The 'String' struct
 let string = "Do or do not, there is no try."
 print(string.count)
@@ -819,8 +847,8 @@ print(string.uppercased())
 print(string.sorted())
 print(string.lowercased())
 
-print("---------")
-// The 'String' struct
+print("\n----THE ARRAY STRUCT-----")
+// The 'Array' struct
 var array = ["John","Bon"]
 print(array.count)
 print(array.sorted())
@@ -836,3 +864,301 @@ print(array.max())
 print(array.firstIndex(of: "John"))
 print(array.firstIndex(of: "Jovi"))
 
+
+print("\n----STRUCT INITIALIZERS-----")
+//Struct initializers
+struct User{
+    var username:String
+    init() {
+        username = "Anonymous"
+    }
+}
+
+var new_user = User()
+print(new_user.username)
+new_user.username = "Papatrexas"
+print(new_user.username)
+
+print("\n----STRUCT INITIALIZERS (self.VarName)-----")
+struct User2 {
+    var name: String
+
+    init(name: String) {
+        print("\(name) was born!")
+        self.name = name
+    }
+}
+var new_user2 = User2(name:"Jonathan")
+
+print("\n----STRUCT INITIALIZERS - The 'extension' Initializer)-----")
+
+struct Employee {
+    var name: String
+    var yearsActive = 0
+}
+
+extension Employee {
+    init() {
+        self.name = "Anonymous"
+        print("Creating an anonymous employee…")
+    }
+}
+
+// creating a named employee now works
+let roslin = Employee(name: "Laura Roslin")
+
+// as does creating an anonymous employee
+let anon = Employee()
+
+
+
+print("\n----LAZY PARAMETERS IN STRUCTS (Created only when needed)-----")
+
+struct Sponsors{
+    var sponsornames:[String]
+    var HQs:[String]
+   
+    init(){
+        self.sponsornames = [""]
+        self.HQs = [""]
+        print("New team has no sponsors")
+    }
+    
+    init(name:[String],HQs:[String]){
+        self.sponsornames = name
+        self.HQs = HQs
+        print("New team sponsors are: \(name) at \(HQs)")
+    }
+}
+
+struct Team{
+    var team_name: String
+    lazy var sponsors = Sponsors()
+    var numOfPlayer:Int
+    
+    init(){
+        team_name = "Olympiakos"
+        numOfPlayer = 22
+    }
+}
+
+
+var new_team = Team()
+print(new_team.team_name,new_team.numOfPlayer)
+new_team.sponsors
+new_team.sponsors = Sponsors(name:["Adidas","Coca Cola"],HQs:["USA","AMSTERDAM"])
+
+
+print("\n----STATIC STRUCT VARIABLES-----")
+
+struct Student {
+    static var classSize = 0
+    var name: String
+
+    init(name: String) {
+        self.name = name
+        Student.classSize += 1
+    }
+}
+
+let ed = Student(name: "Ed")
+let jimmy = Student(name: "Jimmy")
+
+print(Student.classSize)
+
+
+print("\n----PRIVATE STRUCT VARIABLES-----")
+
+struct Person2 {
+    var id: String
+
+    init(id: String) {
+        self.id = id
+    }
+    
+}
+let ann = Person2(id: "12345")
+print(ann.id)
+
+struct Person3 {
+    private var id: Int
+
+    init(id: Int) {
+        self.id = id
+    }
+    
+    func GetID() -> Int {
+        print("My SSN is:\(self.id)")
+        return self.id
+        
+    }
+    
+}
+let jason = Person3(id: 12345)
+let jasonID = jason.GetID()
+print(jasonID)
+// print(jason.id)-->throuws error because id is declared as private in Person3
+
+print("\n----CLASSES-----")
+//in contrast to structs classes must have have an initializer
+class Dog {
+    var name: String
+    var breed: String
+
+    init(name: String, breed: String) {
+        self.name = name
+        self.breed = breed
+    }
+}
+let poppy = Dog(name: "Poppy", breed: "Poodle")
+
+print(poppy.breed)
+
+
+print("\n----CLASS INHERITANCE-----")
+class Poodle: Dog {
+    init(name: String) {
+        super.init(name: name, breed: "Poodle")
+    }
+}
+
+let maxi = Poodle(name:"Maxi")
+print(maxi.breed)
+
+
+print("\n----CLASS METHOD OVERIWITTING-----")
+
+class Dog2 {
+    func makeNoise() {
+        print("Woof!")
+    }
+}
+
+class Poodle2: Dog2 {
+}
+let jossie = Poodle2()
+jossie.makeNoise()
+
+class Poodle3: Dog2 {
+    override func makeNoise() {
+        print("Yip!")
+    }
+}
+
+let jossie2 = Poodle3()
+jossie2.makeNoise()
+
+print("\n----FINAL CLASSES-----")
+// Disables overwritting and inheritance options
+
+final class Dog3 {
+    var name: String
+    var breed: String
+
+    init(name: String, breed: String) {
+        self.name = name
+        self.breed = breed
+    }
+    
+    func makeNoise() {
+        print("Woof!")
+    }
+}
+
+/*
+ Throws Erroe --> Dog3 Class is final ie. it can not be ingeritted and its methods can not be overwritten
+class Poodle4: Dog3 {
+    override func makeNoise() {
+        print("Yip!")
+    }
+}
+*/
+
+
+print("\n----COPYYING CLASSES VS STRUCTS-----")
+// STRUCT COPIES POINT TO DIFFERENT PLACES IN MEMORIE WHILE CLASS COPIES POINT TO THE SAME POINT IN MEMORY
+
+class Singer {
+    var name = "Taylor Swift"
+}
+
+var singer = Singer()
+print(singer.name)
+
+var singerCopy = singer
+singerCopy.name = "Justin Bieber"
+print(singer.name)
+
+
+print(singer.name==singerCopy.name)
+
+print("-----------")
+
+struct Singer2 {
+    var name = "Taylor Swift"
+}
+
+var singer2 = Singer2()
+print(singer2.name)
+
+var singerCopy2 = singer2
+singerCopy2.name = "Justin Bieber"
+print(singer2.name)
+
+print(singer2.name==singerCopy2.name)
+
+
+print("\n----CLASS DE-INITIALIZERS-----")
+//Code that runs when an instance of a class is destroyed
+
+class Person4 {
+    var name = "John Doe"
+
+    init() {
+        print("\(name) is alive!")
+    }
+
+    deinit {
+        print("\(name) is no more!")
+    }
+    
+    func printGreeting() {
+        print("Hello, I'm \(name)")
+    }
+}
+
+
+for _ in 1...3 {
+    let person = Person4()
+    person.printGreeting()
+}
+
+print("-----------")
+var person : Person4? = Person4()
+person.unsafelyUnwrapped.printGreeting()
+person=nil
+
+print("\n----MUTABILITY CLASS VS STRUCTS-----")
+// A Constant Struct Instance (defined with let) needs to have specifically defined mutating functions in order to chaange the value of a parameter
+// This is not the case in Constant Class Instance. To fix property values in Classes the variaable haas to be declared asa Constaant
+
+class Singer3 {
+    var name = "Taylor Swift"
+}
+
+let taylor2 = Singer3() // Constant Class
+print(taylor2.name)
+taylor2.name = "Ed Sheeran"
+print(taylor2.name)
+
+struct Singer4 {
+    var name = "Taylor Swift"
+}
+
+/*
+ Throws error -> Have to define taylor3 as 'var' to work
+let taylor3 = Singer4()
+print(taylor3.name)
+taylor3.name = "Ed Sheeran"
+print(taylor3.name)
+*/
