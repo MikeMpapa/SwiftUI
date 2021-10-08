@@ -1295,3 +1295,133 @@ struct User5: Identifiable2 {
 
 let twostraws = User5(id: "twostraws")
 twostraws.identify()
+
+print("\n----OPTIONAL VARIAABLES-----")
+
+var age3: Int? = nil
+print(age3)
+age3 = 5
+print(age3)
+
+
+print("\n----UNWRAPPING OPTIONAL VARIAABLES-----")
+
+var name: String? = nil
+if let unwrapped = name {
+    print("\(unwrapped.count) letters")
+} else {
+    print("Missing name.")
+}
+
+
+
+print("\n----GUARD OPTIONAL VARIAABLES-----")
+//Reverse if condition
+func greet(_ name: String?) {
+    guard let unwrapped = name else {
+        print("You didn't provide a name!")
+        return
+    }
+
+    print("Hello, \(unwrapped)!")
+}
+
+print("\n----FORCE UNWRAPPING-----")
+
+let strr = "5"
+let num2 = Int(strr)
+let num3 = Int(strr)!
+
+
+print("\n----IMPLICITILY UNWRAPPED OPTIONALS-----")
+//Implicitly unwrapped optionals exist because sometimes a variable will start life as nil, but will always have a value before you need to use it. Because you know they will have a value by the time you need them, it’s helpful not having to write 'if let' or 'guard' all the time
+
+let num4 : Int! = nil
+
+
+print("\n----Nil COALESCING-----")
+func username(for id: Int) -> String? {
+    if id == 1 {
+        return "Taylor Swift"
+    } else {
+        return nil
+    }
+}
+
+var user2 = username(for: 15) ?? "Anonymous"
+print(user2)
+user2 = username(for: 1) ?? "Anonymous"
+print(user2)
+
+print("\n----OPTIONAL CHAINING-----")
+let names2 = ["John", "Paul", "George", "Ringo"]
+let beatleName = names2.first?.uppercased()
+print(beatleName)
+
+var beatleName2:String?=nil
+beatleName2 = beatleName2?.uppercased()
+print(beatleName2)
+
+
+print("\n----OPTIONAL TRY-----")
+
+enum PasswordError: Error {
+    case obvious
+}
+
+func checkPassword(_ password: String) throws -> Bool {
+    if password == "password" {
+        throw PasswordError.obvious
+    }
+
+    return true
+}
+
+
+
+if let result = try? checkPassword("password") {
+    print("Result was \(result)")
+} else {
+    print("D'oh.")
+}
+
+
+try! checkPassword("sekrit")
+print("OK!")
+
+
+
+print("\n----Failable initializers-----")
+//If the initializer fails it will return nil
+
+struct Person5 {
+    var id: String
+
+    init?(id: String) {
+        if id.count == 9 {
+            self.id = id
+        } else {
+            return nil
+        }
+    }
+}
+
+print("\n----TYPECASTING - THE 'as' KEYWORD-----")
+// Check the type of an object and if it sutisfies the condition move in the body of the code
+class Animal { }
+class Fish: Animal { }
+
+class Dog4: Animal {
+    func makeNoise() {
+        print("Woof!")
+    }
+}
+
+let pets = [Fish(), Dog4(), Fish(), Dog4()]
+
+
+for pet in pets {
+    if let dog = pet as? Dog4{
+        dog.makeNoise()
+    }
+}
