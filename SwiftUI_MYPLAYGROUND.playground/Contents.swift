@@ -1162,3 +1162,136 @@ print(taylor3.name)
 taylor3.name = "Ed Sheeran"
 print(taylor3.name)
 */
+
+
+print("\n----PROTOCOLS-----")
+// Protocols dictate the format of a structure. No matter whaat that structure is
+
+protocol Identifiable {
+    var id: String { get set }
+}
+
+struct UserStruct: Identifiable {
+    var id: String
+}
+
+class UserClaass: Identifiable {
+    var id: String
+    init(id: String) {
+        self.id=id
+    }
+}
+
+func displayID(thing: Identifiable) {
+    print("My ID is \(thing.id)")
+}
+
+let u1 = UserStruct(id: "Josua")
+let u2 = UserClaass(id: "Miriam")
+displayID(thing: u1)
+displayID(thing: u2)
+
+print("\n----PROTOCOL INHERITANCE-----")
+// Unlike classes a protocol can inherit multiple protocols
+
+protocol Payable {
+    func calculateWages() -> Int
+}
+
+protocol NeedsTraining {
+    func study()
+}
+
+protocol HasVacation {
+    func takeVacation(days: Int)
+}
+
+protocol EmployeeProtocol: Payable, NeedsTraining, HasVacation { }
+
+
+struct EmployStruct:EmployeeProtocol{
+    func takeVacation(days: Int){
+    print("VACATION \(days) DAYS!!!")
+    }
+    func study(){
+        print("STUDY... :(")
+    }
+    func calculateWages() -> Int{
+        print("MONEY!!!")
+        return 0}
+}
+
+
+let erinn = EmployStruct()
+erinn.calculateWages()
+erinn.study()
+erinn.takeVacation(days: 10)
+
+print("\n----EXTENSIONS-----")
+//Add methods to existing structures --> extentions can only have computaable variaables
+
+extension Int {
+    func squared() -> Int {
+        return self * self
+    }
+}
+
+let number = 8
+print(number.squared())
+
+extension Int {
+    var isEven: Bool {
+        return self % 2 == 0
+    }
+}
+
+print(number.isEven)
+
+print("\n----EXTENSION PROTOCOLS-----")
+// Protocol extensions  are like regular extensions, except rather than extending a specific type like Int you extend a whole protocol so that all conforming types get your changes.
+
+let pythons2 = ["Eric", "Graham", "John", "Michael", "Terry", "Terry"]
+let beatles = Set(["John", "Paul", "George", "Ringo"])
+
+//Swift’s arrays and sets both conform to a protocol called Collection, so we can write an extension to that protocol to add a summarize() method to print the collection neatly
+
+extension Collection {
+    func summarize() {
+        print("There are \(count) of us:")
+
+        for name in self {
+            print(name)
+        }
+    }
+}
+//Both Array and Set will now have that method, so we can try it out:
+
+pythons2.summarize()
+beatles.summarize()
+
+print("\n----PROTOCOL ORIENTED PROGRAMING-----")
+
+
+//Protocol extensions can provide default implementations for our own protocol methods. This makes it easy for types to conform to a protocol, and allows a technique called “protocol-oriented programming” – crafting your code around protocols and protocol extensions.
+
+//First, here’s a protocol called Identifiable that requires any conforming type to have an id property and an identify() method:
+
+protocol Identifiable2 {
+    var id: String { get set }
+    func identify()
+}
+//We could make every conforming type write their own identify() method, but protocol extensions allow us to provide a default:
+
+extension Identifiable2 {
+    func identify() {
+        print("My ID is \(id).")
+    }
+}
+//Now when we create a type that conforms to Identifiable it gets identify() automatically:
+
+struct User5: Identifiable2 {
+    var id: String
+}
+
+let twostraws = User5(id: "twostraws")
+twostraws.identify()
